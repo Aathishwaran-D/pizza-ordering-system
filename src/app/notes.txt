@@ -1,0 +1,8 @@
+Observables are like a subscription to a data stream. 
+Asynchronous Operations: Observables are well-suited for handling asynchronous tasks like API calls, timers, and user events.
+
+This means that the Observable will eventually emit a value, which in this case is an array of Pizza objects.
+The subscribe() method provides three callback functions:
+    The first callback function logs the emitted value.
+    The second callback function logs any errors that occur.
+    The third callback function is executed when the Observable completes.

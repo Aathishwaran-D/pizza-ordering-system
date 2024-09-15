@@ -1,0 +1,29 @@
+.app-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  nav li {
+    margin-right: 20px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #337ab7;
+  }
+  
+  nav a:hover {
+    color: #23527c;
+  }

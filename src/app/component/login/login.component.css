@@ -1,0 +1,109 @@
+/* body {
+  margin: 0;
+  background-color: #355aa0;
+  background-image: url('/login.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin: 0;
+} */
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  background-image: url(../../../assets/images/login.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.left {
+  width: 50%;
+  text-align: left;
+  padding-left: 20px;
+  background-color: aliceblue;
+  border-radius: 20px;
+  margin-right: 30px;
+}
+
+.right {
+  width: 80%;
+  text-align: center;
+  padding-right: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+   
+    margin-bottom: 20px;
+    margin-top: 50px;
+    margin-bottom: 70px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 80px;
+    font-weight: bold;
+  }
+  
+  .p-grid {
+    font-size: 20px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center; 
+  }
+
+.login-submit{
+    margin-top: 20px;
+}
+
+  
+  .p-field {
+    margin-bottom: 20px;
+    color: black;
+    text-align: center;
+  }
+  
+  input[type="username"],
+  input[type="password"] {
+    width: 70%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .p-message {
+    margin-top: 5px;
+    font-size: 0.9rem;
+  }
+  
+  button {
+    width: 40%;
+    padding: 10px;
+    gap: 5px;
+    font-size: 1.1rem;
+  }
+  
+  .p-col-12 {
+    text-align: center;
+  }
+  
+  p {
+    text-align: center;
+    margin: 15px 0;
+  }
+  
+  @media (min-width: 768px) {
+    .p-md-6 {
+      width: 50%;
+    }
+  
+    .p-align-center {
+      justify-content: center;
+    }
+  }
+  

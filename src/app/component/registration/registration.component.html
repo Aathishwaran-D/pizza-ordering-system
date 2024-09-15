@@ -1,0 +1,51 @@
+
+<div class="registration-container">
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <div class="p-grid p-dir-col p-align-center">
+      <div class="p-col-12 p-md-6">
+        <h1>Registration Form</h1>
+        <div class="p-field">
+          <label for="name">Name</label>
+          <input id="name" type="text" pInputText formControlName="name"/>
+          <p-message *ngIf="registrationForm.get('name')?.touched && registrationForm.get('name')?.invalid" severity="error">Name is required.</p-message>
+        </div>
+      </div>
+      <div class="p-col-12 p-md-6">
+        <div class="p-field">
+          <label for="email">Email</label>
+          <input id="email" type="email" pInputText formControlName="email"/>
+          <p-message *ngIf="registrationForm.get('email')?.touched && registrationForm.get('email')?.invalid" severity="error">Valid email is required.</p-message>
+        </div>
+      </div>
+      <div class="p-col-12 p-md-6">
+        <div class="p-field">
+          <label for="address">Address</label>
+          <input id="address" type="text" pInputText formControlName="address"/>
+        </div>
+      </div>
+      <div class="p-col-12 p-md-6">
+        <div class="p-field">
+          <label for="phoneNumber">Phone Number</label>
+          <input id="phoneNumber" type="text" pInputText formControlName="phoneNumber"/>
+          <p-message *ngIf="registrationForm.get('phoneNumber')?.touched && registrationForm.get('phoneNumber')?.invalid" severity="error">Phone number must be 10 digits.</p-message>
+        </div>
+      </div>
+      <div class="p-col-12 p-md-6">
+        <div class="p-field">
+          <label for="password">Password</label>
+          <input id="password" type="password" pInputText formControlName="password"/>
+          <p-message *ngIf="registrationForm.get('password')?.touched && registrationForm.get('password')?.invalid" severity="error">Password is required and must be at least 6 characters.</p-message>
+        </div>
+      </div>
+      <div class="p-col-12 p-md-6">
+        <div class="p-field">
+          <label for="roles">Roles</label>
+          <input id="roles" type="text" pInputText formControlName="roles"/>
+        </div>
+      </div>
+      <div class="p-col-12">
+        <button type="submit" pButton label="Register" [disabled]="registrationForm.invalid"></button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,79 @@
+/* Global Styles */
+.registration-container{
+  background-color: antiquewhite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+}
+
+.p-grid {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .p-field {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Error Messages */
+  
+  .p-message {
+    font-size: 12px;
+    color: #f00;
+    margin-top: 5px;
+  }
+  
+  /* Button Styles */
+  
+  button[pButton] {
+    width: 100%;
+    height: 40px;
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button[pButton]:hover {
+    background-color: #3e8e41;
+  }
+  
+  button[pButton]:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* Responsive Design */
+  
+  @media only screen and (max-width: 768px) {
+    .p-grid {
+      margin: 20px auto;
+    }
+    .p-col-12.p-md-6 {
+      width: 100%;
+    }
+  }

@@ -1,0 +1,65 @@
+.p-grid {
+    margin-top: 50px;
+    margin-left: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Decreased gap size */
+    justify-content: center; /* Centers the grid items */
+}
+
+.p-col-12 {
+    flex-basis: calc(33.33% - 20px); /* Adjusted width calculation */
+    display: flex;
+    justify-content: center;
+}
+
+.p-card {
+    width: 100%;
+    max-width: 200px; /* Decreased max-width */
+    margin: 10px auto;
+    height: 350px; /* Fixed height */
+}
+
+.p-card img {
+    width: 100px; /* Decreased image width */
+    height: 100px; /* Decreased image height */
+    object-fit: contain;
+    border-radius: 20px; /* Rounded corners */
+    display: block;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .p-card img {
+        margin-top: 5px;
+        margin-left: 10px;
+    }
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.quantity-value {
+    font-size: 20px;
+    margin: 0 10px;
+    width: 30px;
+    text-align: center;
+}
+
+button {
+    width: 100px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-button-size {
+    height: 10px; /* Reduce button height */
+    width: 10px; /* Reduce button width */
+    font-size: 0.875rem; /* Reduce font size */
+  }
