@@ -1,0 +1,57 @@
+<p-menubar [model]="items"></p-menubar> <!-- Define the menubar template -->
+  <div class="cart-container">
+    <h2 style="margin-left: 20px;">Cart</h2>
+    <p-table [value]="selectedPizzas" [tableStyle]="{ 'min-width': '40rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Pizza Name:</th>
+                <th>Price:</th>
+                <th>Quantity:</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-selectedPizza>
+            <tr>
+                <td>{{ selectedPizza.pizza.name }}</td>
+                <td>{{ selectedPizza.pizza.price }}</td>
+                <td>{{ selectedPizza.quantity }}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+    <p style="margin-left: 20px;"><strong>Total Amount:</strong> Rs.{{totalPrice | number:'1.2-2'}}</p>
+</div>
+  <div class="coupon-container" *ngIf="availableCoupons.length>0">
+    <h2 style="margin-left: 20px; font-size: 18px;">Coupon Details</h2>
+    <p-table [value]="availableCoupons" [tableStyle]="{ 'min-width': '30rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Coupon Code</th>
+                <th>Discount</th>
+                <th>Expiry Date</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-coupon>
+            <tr class="cou">
+                <td>{{ coupon.code }}</td>
+                <td>{{ coupon.discount }}%</td>
+                <td>{{ coupon.expiryDate | date }}</td>
+                <!-- <td><button pButton type="button" label="Apply" class="p-button-primary" [disabled]="couponApplied" (click)="selectCoupon(coupon)   "></button></td>
+                  -->
+                  <td><button pButton type="button" label="Apply" class="p-button-primary apply-button" [disabled]="couponApplied" (click)="selectCoupon(coupon)">Apply</button></td>
+                  
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+<div class="coupon-details" *ngIf="coupon">
+    <h2>Coupon Applied</h2>
+    <p><strong>Coupon Code:</strong> {{ coupon.code }}</p>
+    <p><strong>Discount:</strong> {{ coupon.discount }}%</p>
+    <p><strong>Expiry Date:</strong> {{ coupon.expiryDate | date }}</p>
+  </div>
+<!-- <button pButton type="button" label="Place Order Now" class="p-button p-button-success place-order-btn">Place Order</button> -->
+<!-- <app-order-confirmation></app-order-confirmation> -->
+<span *ngIf="message" class="order-message">{{ message }}</span>
+<button pButton type="button" label="Place Order Now" class="p-button p-button-success place-order-btn"  (click)="orderPizzas()">Place Order</button>
+<button pButton type="button" label="Clear Order" class="p-button p-button-danger clear-order-btn" (click)="clearCart()">Clear Cart</button>
+<!-- <button pButton type="button" label="Place Order Now" class="p-button p-button-success place-order-btn"></button> -->

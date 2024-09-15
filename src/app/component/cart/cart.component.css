@@ -1,0 +1,60 @@
+.cart-container, .coupon-container {
+  display: inline-block;
+  vertical-align: top;
+  margin: 20px;
+}
+
+.cart-container {
+  margin-left: 30px;
+  width: 60%;
+ box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+ border-radius: 20px;
+}
+
+.coupon-container {
+  width: 30%;
+  font-size: 14px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  border-radius: 20px;
+}
+
+.coupon-details {
+  margin-top: 20px;
+  font-size: 10px;
+}
+
+.order-message {
+  display: block;
+  margin-top: 20px;
+  color: green;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.place-order-btn, .clear-order-btn {
+
+  margin-top: 200px;
+  margin-right: 20px;
+  float: right;
+}
+
+.cou{
+  font-size: 13px;
+}
+
+
+.apply-button {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.apply-button[disabled] {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}

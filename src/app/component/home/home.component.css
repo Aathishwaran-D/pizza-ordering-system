@@ -57,9 +57,3 @@ button {
     align-items: center;
     justify-content: center;
 }
-
-.custom-button-size {
-    height: 10px; /* Reduce button height */
-    width: 10px; /* Reduce button width */
-    font-size: 0.875rem; /* Reduce font size */
-  }

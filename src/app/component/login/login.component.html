@@ -14,23 +14,23 @@
     <div class="p-grid">
       <!-- <div class="p-col-12 p-md-6"> -->
         <div class="p-field">
-          <label for="username">UserName</label>
+          <label  for="username" >USERNAME</label>
           <br>
-          <input id="username" type="username" pInputText formControlName="username"/>
+          <input id="username" type="username" class="usernamelabel" pInputText formControlName="username"/>
           <br>
-          <p-message *ngIf="loginForm.get('username')?.touched" severity="error">Valid Username is required.</p-message>
+          <!-- <p-message *ngIf="loginForm.get('username')?.touched" severity="error">Valid Username is required.</p-message> -->
           <br>
-          <label for="password">Password</label>
+          <label for="password" >PASSWORD</label>
           <br>
-          <input id="password" type="password" pInputText formControlName="password"/>
-          <p-message *ngIf="loginForm.get('password')?.touched" severity="error">Password is required.</p-message>
+          <input id="password" type="password" class="usernamelabel" pInputText formControlName="password"/>
+          <!-- <p-message *ngIf="loginForm.get('password')?.touched" severity="error">Password is required.</p-message> -->
         <!-- </div> -->
-        <div class="login-submit">
-          <button label="Primary" [raised]="true" type="submit" pButton label="Login" (Click)="onSubmit()" ></button>
-
-        </div>
-        <br>
-        <button label="Secondary" [raised]="true" severity="secondary" pButton label="Register" (click)="navigateToRegister()"></button></div>
+         <br>
+        <p style="font-size: 15px;">Don't have an account? Please register.</p>
+         <br>
+        <button label="Primary" class="login-submit" [raised]="true" type="submit" pButton label="Login" (Click)="onSubmit()" ></button>
+        <button label="Secondary" [raised]="true" severity="secondary" pButton label="Register" (click)="navigateToRegister()"></button>
+      </div>
       <!-- <div> -->
         <!-- <p>Don't have an account?</p> -->
         

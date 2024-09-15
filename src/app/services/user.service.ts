@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -21,6 +21,24 @@ export class UserService {
   }
 
   login(credentials: any) {
-    return this.http.post(`${this.baseUrl}/login`, credentials);
+    return this.http.post(`${this.baseUrl}/login`, credentials).pipe(
+      map((response: any) => {
+        if (response && response.token) {
+          // Store the token in localStorage (or sessionStorage as per your preference)
+          localStorage.setItem('jwtToken', response.token);
+        }
+        return response;
+      })
+    );
+  }
+
+  // Method to get the token
+  getToken(): string | null {
+    return localStorage.getItem('jwtToken');
+  }
+
+  // Method to logout (clear the token)
+  logout(): void {
+    localStorage.removeItem('jwtToken');
   }
 }

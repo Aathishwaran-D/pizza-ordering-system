@@ -8,6 +8,6 @@ export interface Pizza {
     cookingMethod: string;
     spiceLevel: string;
     imageUrl: string;
-    quantity?: number;
+    quantity: number;
 }
   

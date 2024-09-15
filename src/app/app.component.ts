@@ -9,11 +9,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PizzaService } from './services/pizza.service';
 import { HomeComponent } from './component/home/home.component';
 import { MenubarModule } from 'primeng/menubar';
-
+import { CardModule } from 'primeng/card';
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet,MessageModule,ReactiveFormsModule,HttpClientModule,
+            CardModule,
             UserComponent,
             RegistrationComponent,
             MenubarModule,

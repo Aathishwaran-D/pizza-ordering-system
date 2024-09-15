@@ -6,7 +6,10 @@ import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
 import { MessageModule } from 'primeng/message';
 import { InputTextModule } from 'primeng/inputtext';
-
+import { InputGroupModule } from 'primeng/inputgroup';
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
+import { Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -16,6 +19,10 @@ import { InputTextModule } from 'primeng/inputtext';
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class LoginComponent implements OnInit {
+  username: string = '';
+  password: string = '';
+  errorMessage: string = '';
+
   loginForm!: FormGroup;
 
   // Inject FormBuilder instead of FormGroup
@@ -29,21 +36,39 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSubmit(): void {
+ onSubmit(): void {
     if (this.loginForm.valid) {
       this.userService.login(this.loginForm.value).subscribe(
         response => {
-          console.log('Login successful', response);
-          this.router.navigate(['/']);
+          if (response && response.token) {
+            // Store the token in localStorage
+            localStorage.setItem('jwtToken', response.token);
+            sessionStorage.setItem('userName', this.loginForm.controls['username'].value);
+            console.log('Login successful, token stored');
+            
+            // Redirect to home or dashboard page
+            this.router.navigate(['/home']);
+          }
         },
         error => {
-          console.error('Login error', error);
+          // Handle login error, display an error message
+          this.errorMessage = 'Invalid credentials, please try again.';
+          console.error('Login error:', error);
         }
       );
+    } else {
+      this.errorMessage = 'Please fill in all required fields.';
     }
   }
 
   navigateToRegister(): void {
     this.router.navigate(['/register']);
   }
+
+
+
+//   this.router.navigate(['/cart'], {
+//     queryParams: { selectedPizzas: JSON.stringify(this.selectedPizzas), totalPrice: this.calculateTotalPrice() }
+// });
+
 }

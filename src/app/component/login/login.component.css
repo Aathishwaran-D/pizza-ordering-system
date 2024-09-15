@@ -21,13 +21,14 @@
 }
 
 .left {
-  width: 50%;
+  width: 70%;
   text-align: left;
   padding-left: 20px;
-  background-color: aliceblue;
-  border-radius: 20px;
-  margin-right: 30px;
+  background-color: rgba(240, 248, 255, 1); /* AliceBlue with 80% opacity */
+  height: 800px;
+  border-radius: 10px;
 }
+
 
 .right {
   width: 80%;
@@ -58,6 +59,7 @@ h1 {
 
 .login-submit{
     margin-top: 20px;
+    margin-right: 20px;
 }
 
   
@@ -65,27 +67,26 @@ h1 {
     margin-bottom: 20px;
     color: black;
     text-align: center;
-  }
-  
+  }  
   input[type="username"],
   input[type="password"] {
-    width: 70%;
+    width: 80%;
     padding: 10px;
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 5px;
   }
-  
   .p-message {
     margin-top: 5px;
     font-size: 0.9rem;
   }
   
   button {
-    width: 40%;
+    width: 35%;
     padding: 10px;
     gap: 5px;
     font-size: 1.1rem;
+    gap :10px;
   }
   
   .p-col-12 {
@@ -107,3 +108,7 @@ h1 {
     }
   }
   
+  .usernamelabel{
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }

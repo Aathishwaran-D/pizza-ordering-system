@@ -1,4 +1,4 @@
-<p-menubar [model]="items"></p-menubar>
+<p-menubar  [model]="items"></p-menubar>
 <div class="p-grid p-m-2">
     <div class="p-col-12 p-md-4" *ngFor="let pizza of pizzas">
         <p-card class="p-mb-2">
@@ -17,27 +17,23 @@
             <p>Spice Level: {{pizza.spiceLevel}}</p>
             <p><strong>Price: Rs{{pizza.price}}</strong></p>
             <p-inputNumber 
-                [formControl]="pizzaQuantityControl"
-                [showButtons]="true" 
-                buttonLayout="horizontal" 
-                inputId="horizontal" 
-                spinnerMode="horizontal" 
-                [step]="1"
-                [min]="0" 
-                decrementButtonClass="p-button-danger"
-                incrementButtonClass="p-button-success"
-                incrementButtonIcon="pi pi-plus" 
-                decrementButtonIcon="pi pi-minus" 
-                displayOnly="true"
-                buttonStyleClass="custom-button-size" />
-
-            <!-- Increment/Decrement Bar with visible quantity -->
-            <!-- <button pButton type="button" label="Order" class="p-button-success" (click)="orderPizza(pizza)"></button> -->
+            [(ngModel)]="pizza.quantity"
+            [showButtons]="true" 
+            buttonLayout="horizontal" 
+            inputId="horizontal" 
+            spinnerMode="horizontal" 
+            [step]="1"
+            [min]="0" 
+            decrementButtonClass="p-button-danger"
+            incrementButtonClass="p-button-success"
+            incrementButtonIcon="pi pi-plus" 
+            decrementButtonIcon="pi pi-minus" 
+            [max]="10"
+            displayOnly="false"
+            buttonStyleClass="custom-button-size" />
         </p-card>
-
     </div>
-        <div class="p-col-12 p-md-12">
-        <button pButton type="button" label="Order" class="p-button-success" (click)="orderPizzas()"></button>
-    </div>
-
+    <button pButton type="button" label="Order" class="p-button-success" (click)="orderPizzas()"></button>
 </div>
+
+ 
