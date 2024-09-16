@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 })
 export class UserService {
 
-  private baseUrl = 'http://localhost:8082/auth';  // Base URL for the Spring Boot backend
+  private baseUrl = 'http://localhost:8082/pizza/auth';  // Base URL for the Spring Boot backend
 
   constructor(private http: HttpClient) { }
 
@@ -31,6 +31,16 @@ export class UserService {
       })
     );
   }
+
+    // New methods added from UserController
+    getUserProfile(): Observable<string> {
+      return this.http.get(`${this.baseUrl}/user/userProfile`, { responseType: 'text' });
+    }
+  
+    getAdminProfile(): Observable<string> {
+      return this.http.get(`${this.baseUrl}/admin/adminProfile`, { responseType: 'text' });
+    }
+  
 
   // Method to get the token
   getToken(): string | null {

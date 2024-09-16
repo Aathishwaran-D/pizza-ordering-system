@@ -26,15 +26,16 @@
 .order-message {
   display: block;
   margin-top: 20px;
+  margin-left: 50px;
   color: green;
-  font-size: 18px;
+  font-size: 50px;
   font-weight: bold;
 }
 
 .place-order-btn, .clear-order-btn {
 
-  margin-top: 200px;
-  margin-right: 20px;
+  margin-top: 100px;
+  margin-right: 100px;
   float: right;
 }
 
@@ -57,4 +58,10 @@
   background-color: #cccccc;
   color: #666666;
   cursor: not-allowed;
+}
+
+.coupon-details{
+  margin-left: 1000px;
+  font-size: 16px;
+
 }
