@@ -8,6 +8,8 @@ import { TableModule } from 'primeng/table';
 import { Coupon } from '../../model/coupon';
 import { CouponService } from '../../services/coupon.service';
 import { error } from 'console';
+import { OrderDTO } from '../../model/orderDTO';
+import { OrderService } from '../../services/order.service';
 // import { ViewChild } from '@angular/core';
 // import { OrderConfirmationComponent } from '../order-confirmation/order-confirmation.component';
 
@@ -51,7 +53,7 @@ export class CartComponent implements OnInit {
 
   // Coupon for displaying the available cooupons 
 
-  constructor(private route: ActivatedRoute, private couponService: CouponService) { }
+  constructor(private route: ActivatedRoute, private couponService: CouponService, private orderService: OrderService) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -84,6 +86,37 @@ clearCart() {
 orderPizzas() {
   if (this.selectedPizzas.length > 0) {
     this.message = 'Your order is placed!';  // Set confirmation message
+        // Prepare order items
+        const orderItems = this.selectedPizzas.map(pizza => ({
+          quantity: pizza.quantity,
+          price: pizza.pizza.price,
+          pizza: { id: pizza.pizza.id }
+        }));
+
+         // Prepare the order payload
+    const orderDetails: OrderDTO = {
+      orderDate: new Date().toISOString(), // Current date
+      totalAmount: this.totalPrice, // Total price from cart
+      discountAmount: this.coupon ? (this.totalPrice * (this.coupon.discount / 100)) : 0, // Calculate discount
+      finalAmount: this.totalPrice - (this.coupon ? (this.totalPrice * (this.coupon.discount / 100)) : 0), // Final amount after discount
+      status: 'COMPLETED',
+      user: { id: 1 }, // Hardcoded user ID for now, change as needed
+      coupon: this.coupon && this.coupon.id ? { id: this.coupon.id } : undefined, // Ensure `id` is defined or use `undefined` // Use coupon ID if applied
+      orderItems: orderItems // Pizza items
+    };
+        // Send the order to the backend
+    this.orderService.placeOrder(orderDetails).subscribe(
+      (response: any) => {
+            console.log('Order placed successfully', response);
+            this.message = 'Order placed successfully!';
+          },
+          (error) => {
+            console.error('Error placing order', error);
+            this.message = 'Error placing order. Please try again.';
+          }
+        );
+
+
   } else {
     this.message = 'Please select at least one pizza to order.';  // Error message
   }

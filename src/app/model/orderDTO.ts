@@ -9,7 +9,7 @@ export interface OrderDTO {
     finalAmount: number;
     status: string;
     user: UserDTO;
-    coupon?: CouponDTO;
+    coupon?: CouponDTO | null;
     orderItems: OrderItemDTO[];
   }
   

@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 })
 export class UserService {
 
-  private baseUrl = 'http://localhost:8082/pizza/auth';  // Base URL for the Spring Boot backend
+  private baseUrl = 'http://localhost:8082/auth';  // Base URL for the Spring Boot backend
 
   constructor(private http: HttpClient) { }
 
