@@ -38,11 +38,12 @@ export class CartComponent implements OnInit {
       routerLink: ['/cart']
     },
     {
-      label: 'User Login',
+      label:  sessionStorage.getItem('userName') || 'Guest',
       icon: 'pi pi-fw pi-user',
       routerLink: ['/login']
     }
   ]
+  
   selectedPizzas: SelectedPizza[] = [];
   totalPrice = 0;
   message = ''; 

@@ -57,3 +57,24 @@ button {
     align-items: center;
     justify-content: center;
 }
+/* Logout icon */
+
+/* In your home.component.css or styles.css */
+/* Style for the Menubar container */
+/* Custom styling for the Menubar */
+.custom-menubar .ui-menubar {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Style for items within the Menubar */
+  .custom-menubar .ui-menubar .ui-menuitem {
+    display: flex;
+  }
+  
+  /* Move Logout item to the right */
+  .custom-menubar .ui-menubar .logout-item {
+    margin-left: auto; /* Pushes the item to the far right */
+  }
+  
+  

@@ -10,10 +10,18 @@ import { PizzaService } from './services/pizza.service';
 import { HomeComponent } from './component/home/home.component';
 import { MenubarModule } from 'primeng/menubar';
 import { CardModule } from 'primeng/card';
+import { TableModule } from 'primeng/table';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import { FormsModule } from '@angular/forms';
+import { AdminDashboardComponent } from './component/admin-dashboard/admin-dashboard.component';
+
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet,MessageModule,ReactiveFormsModule,HttpClientModule,
+    TableModule,DialogModule,ButtonModule,InputTextModule,FormsModule,AdminDashboardComponent,
             CardModule,
             UserComponent,
             RegistrationComponent,

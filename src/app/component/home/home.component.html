@@ -7,7 +7,7 @@
                     <strong style="font-size: 44px; padding-left: 16px; padding-top: 16px; margin: 0 auto; display: block; text-align: center;">{{pizza.name | uppercase}}</strong>
                 </div>
                 <div>
-                    <img src="https://images.pexels.com/photos/842519/pexels-photo-842519.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Pizza Image" style="width:400px; height: 300px; object-fit: fill; border-radius: 20px; justify-content: center; margin: 0 auto; display: block;" />
+                    <img [src]="pizza.imageUrl" alt="Pizza Image" style="width:400px; height: 300px; object-fit: fill; border-radius: 20px; justify-content: center; margin: 0 auto; display: block;" />
                 </div>
             </ng-template>
             <small style="font-size: large;">{{pizza.category}}</small>

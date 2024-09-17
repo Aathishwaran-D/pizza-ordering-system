@@ -4,7 +4,7 @@ import { PizzaService } from '../../services/pizza.service';
 import { Router, RouterLink } from '@angular/router';
 // import { MessageModule } from 'primeng/message/message';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { CommonModule, getLocaleNumberFormat } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { MenubarModule } from 'primeng/menubar';
@@ -12,6 +12,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { ActivatedRoute } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
 import { TabMenuModule } from 'primeng/tabmenu';
+import { last } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -40,16 +41,28 @@ export class HomeComponent {
       routerLink: ['/login']
     },
     {
-      label: 'Order',
-      icon:'pi pi-check',
-      style: { color: 'green' },
-      command: () => {
-        this.orderPizzas();
-      },
-      routerLink:['/cart'] // Use arrow function to bind `this`
-        
+      label:'Order',
+      command:()=> this.orderPizzas()
+    },
+    {
+    label:'Admin',
+    routerLink:['/admin-dashboard']
+    },
+    {
+      label:'History',
+
+    },
+    {
+     'label':'Logout',
+     icon: 'pi pi-fw pi-sign-out',
+      command: () => this.logout(),
+      cssClass: 'logout-item' // Add a custom class here
+      
     }
+
+
   ]
+
   // pizzaQuantityControl = new FormControl(0); // Initialize FormControl
   pizzas: Pizza[] = [];
   selectedPizzas: {
@@ -116,5 +129,11 @@ orderPlaced: boolean = false;
     this.router.navigate(['/cart'], {
         queryParams: { selectedPizzas: JSON.stringify(this.selectedPizzas), totalPrice: this.calculateTotalPrice() }
     });
+}
+logout(){
+  console.log("Logging out")
+  sessionStorage.clear(); // Clear session storage
+  localStorage.clear(); // Clear local storage
+  this.router.navigate(['/login']); // Redirect to login page
 }
 }

@@ -1,0 +1,174 @@
+/* Global Styles */
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  margin: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f0f0f0;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f2f2f2;
+}
+
+/* Button Styles */
+
+button {
+  margin: 5px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  color: #fff;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+input[type="date"] {
+  margin-top: 10px;
+  height: 40px;
+  width: 100%; /* Ensure the input field takes up the full width of the form group */
+}
+/* ------------------------------------ */
+/* Modal Styles */
+
+/* Modal CSS */
+/* Global Styles */
+
+/* Global Styles */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+/* Modal Styles */
+
+.modal-content {
+  background-color: #fff;
+  border: none;
+  border-radius: 0.3rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  width: 50%; /* Take up half of the screen width */
+  margin: 2rem auto; /* Center the modal horizontally */
+}
+
+.modal-header {
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #ddd;
+  padding: 1rem;
+}
+
+.modal-header .modal-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.modal-header .close {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  width: 100%;
+  height: 2.5rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+}
+
+.form-control:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.modal-footer {
+  background-color: #f7f7f7;
+  border-top: 1px solid #ddd;
+  padding: 1rem;
+  text-align: right;
+}
+
+.btn-primary {
+  background-color: #337ab7;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #23527c;
+}
+
+/* Pizza Modal Styles */
+
+#pizzaFormModal {
+  left: 0; /* Align the Pizza Modal to the left side */
+}
+
+/* Coupon Modal Styles */
+
+#couponFormModal {
+  right: 0; /* Align the Coupon Modal to the right side */
+}

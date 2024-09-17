@@ -1,0 +1,171 @@
+<p-menubar [model]="items"></p-menubar> <!-- Define the menubar template -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Pizza Management</h3>
+      <button class="btn btn-primary" (click)="showPizzaForm()">Add Pizza</button>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Size</th>
+            <th>Spiece Level</th>
+            <th>Cooking Method</th>
+            <th>Image Url</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pizza of pizzas">
+            <td>{{ pizza.id }}</td>
+            <td>{{ pizza.name }}</td>
+            <td>{{ pizza.description }}</td>
+            <td>{{ pizza.price }}</td>
+            <td>{{pizza.category}}</td>
+            <td>{{pizza.size}}</td>
+            <td>{{pizza.spiceLevel}}</td>
+            <td>{{pizza.cookingMethod}}</td>
+            <td>{{pizza.imageUrl}}</td>
+            <td>
+              <button class="btn btn-warning" (click)="showPizzaForm(pizza)">Edit</button>
+              <button class="btn btn-danger" (click)="deletePizza(pizza.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-6">
+      <h3>Coupon Management</h3>
+      <button class="btn btn-primary" (click)="showCouponForm()">Add Coupon</button>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Code</th>
+            <th>Discount</th>
+            <th>Expiry Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let coupon of coupons">
+            <td>{{ coupon.id }}</td>
+            <td>{{ coupon.code }}</td>
+            <td>{{ coupon.discount }}%</td>
+            <td>{{ coupon.expiryDate | date }}</td>
+            <td>
+              <button class="btn btn-warning" (click)="showCouponForm(coupon)">Edit</button>
+              <button class="btn btn-danger" (click)="deleteCoupon(coupon.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="modal-container d-flex justify-content-between">
+    <!-- Pizza Modal -->
+    <div class="modal fade" id="pizzaFormModal" tabindex="-1" role="dialog" aria-labelledby="pizzaFormModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="pizzaFormModalLabel">{{ selectedPizza ? 'Edit Pizza' : 'Add Pizza' }}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>   
+          <div class="modal-body">
+            <form [formGroup]="pizzaForm">
+              <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" formControlName="name" required>
+              </div>
+              <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="number" class="form-control" id="price" formControlName="price" required>
+              </div>
+              <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea class="form-control" id="description" formControlName="description" required></textarea>
+              </div>
+              <div class="form-group">
+                <label for="size">Size:</label>
+                <select class="form-control" id="size" formControlName="size" required>
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="category">Category:</label>
+                <select class="form-control" id="category" formControlName="category" required>
+                <option value="Veg">Veg</option>
+                <option value="Non-Veg">Non-Veg</option>
+                </select>
+                </div>
+                <div class="form-group">
+                  <label for="cookingMethod">Cooking Method:</label>
+                  <select class="form-control" id="cookingMethod" formControlName="cookingMethod" required>
+                  <option value="Wood Fire">Wood Fire</option>
+                  <option value="Oven">Oven</option>
+                  <option value="Grill">Grill</option>
+                  </select>
+                  </div>
+                  <div class="form-group">
+                  <label for="spiceLevel">Spice Level:</label>
+                  <select class="form-control" id="spiceLevel" formControlName="spiceLevel" required>
+                  <option value="Mild">Mild</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Hot">Hot</option>
+                  </select>
+                  </div>
+                  <div class="form-group">
+                  <label for="imageUrl">Image URL:</label>
+                  <input type="text" class="form-control" id="imageUrl" formControlName="imageUrl" required>
+                  </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="savePizza()">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Coupon Modal -->
+  <div class="modal fade" id="couponFormModal" tabindex="-1" role="dialog" aria-labelledby="couponFormModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="couponFormModalLabel">{{ selectedCoupon ? 'Edit Coupon' : 'Add Coupon' }}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>   
+        <div class="modal-body">
+          <form [formGroup]="couponForm">
+            <div class="form-group">
+              <label for="code">Code:</label>
+              <input type="text" class="form-control" id="code" formControlName="code" required>
+            </div>
+            <div class="form-group">
+              <label for="discount">Discount in Percentage:</label>
+              <input type="number" class="form-control" id="discount" formControlName="discount" required>
+            </div>
+            <div class="form-group">
+              <label for="expiryDate">Expiry Date:</label>
+              <input type="date" class="form-control" id="expiryDate" formControlName="expiryDate" required title="Please enter the expiry date in DD/MM/YYYY format.">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="saveCoupon()">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
