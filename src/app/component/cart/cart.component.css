@@ -65,3 +65,15 @@
   font-size: 16px;
 
 }
+.fixed-menubar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures it stays on top of other content */
+}
+
+/* Optional: Add padding to the body to prevent content from going under the menubar */
+body {
+  padding-top: 50px; /* Adjust this value to match the height of your menubar */
+}

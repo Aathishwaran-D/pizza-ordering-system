@@ -9,18 +9,21 @@
 <div class="left">
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
-  <h1 style="color:black;">WELCOME</h1>
+  <h1 style="color:black; margin-bottom: 2px;">WELCOME</h1>
+  <h5>Hungry for Pizza? Let’s Make It Happen – Log in Now!</h5>
     <!-- <div class="p-grid p-dir-col p-align-center"> -->
     <div class="p-grid">
       <!-- <div class="p-col-12 p-md-6"> -->
         <div class="p-field">
-          <label  for="username" >USERNAME</label>
+          <label class="usernamelab" for="username" >USERNAME</label>
           <br>
+          <br> 
           <input id="username" type="username" class="usernamelabel" pInputText formControlName="username"/>
           <br>
           <!-- <p-message *ngIf="loginForm.get('username')?.touched" severity="error">Valid Username is required.</p-message> -->
           <br>
-          <label for="password" >PASSWORD</label>
+          <label for="password" class="usernamelab">PASSWORD</label>
+          <br>
           <br>
           <input id="password" type="password" class="usernamelabel" pInputText formControlName="password"/>
           <!-- <p-message *ngIf="loginForm.get('password')?.touched" severity="error">Password is required.</p-message> -->
@@ -30,6 +33,9 @@
          <br>
         <button label="Primary" class="login-submit" [raised]="true" type="submit" pButton label="Login" (Click)="onSubmit()" ></button>
         <button label="Secondary" [raised]="true" severity="secondary" pButton label="Register" (click)="navigateToRegister()"></button>
+        <br>
+        <br>
+        <span class="error-message">{{errorMessage}}</span>
       </div>
       <!-- <div> -->
         <!-- <p>Don't have an account?</p> -->

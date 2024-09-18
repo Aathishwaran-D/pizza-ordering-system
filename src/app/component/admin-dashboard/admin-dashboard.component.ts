@@ -131,7 +131,7 @@ export class AdminDashboardComponent implements OnInit {
           .subscribe(
             () => {
               this.getPizzas();
-              this.hidePizzaForm();
+              this.pizzaForm.reset();
             },
             error => {
               console.error('Error updating pizza:', error);

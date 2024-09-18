@@ -1,39 +1,46 @@
-<p-menubar  [model]="items"></p-menubar>
-<div class="p-grid p-m-2">
-    <div class="p-col-12 p-md-4" *ngFor="let pizza of pizzas">
-        <p-card class="p-mb-2">
-            <ng-template pTemplate="header">
-                <div>
-                    <strong style="font-size: 44px; padding-left: 16px; padding-top: 16px; margin: 0 auto; display: block; text-align: center;">{{pizza.name | uppercase}}</strong>
-                </div>
-                <div>
-                    <img [src]="pizza.imageUrl" alt="Pizza Image" style="width:400px; height: 300px; object-fit: fill; border-radius: 20px; justify-content: center; margin: 0 auto; display: block;" />
-                </div>
-            </ng-template>
-            <small style="font-size: large;">{{pizza.category}}</small>
-            <p>{{pizza.description}}</p>
-            <p>Size: {{pizza.size}}</p>
-            <p>Cooking Method: {{pizza.cookingMethod}}</p>
-            <p>Spice Level: {{pizza.spiceLevel}}</p>
-            <p><strong>Price: Rs{{pizza.price}}</strong></p>
-            <p-inputNumber 
-            [(ngModel)]="pizza.quantity"
-            [showButtons]="true" 
-            buttonLayout="horizontal" 
-            inputId="horizontal" 
-            spinnerMode="horizontal" 
-            [step]="1"
-            [min]="0" 
-            decrementButtonClass="p-button-danger"
-            incrementButtonClass="p-button-success"
-            incrementButtonIcon="pi pi-plus" 
-            decrementButtonIcon="pi pi-minus" 
-            [max]="10"
-            displayOnly="false"
-            buttonStyleClass="custom-button-size" />
-        </p-card>
+<p-menubar [style]="{color: 'yellow'}" [model]="items" class="fixed-menubar"></p-menubar>
+<br>    
+<br>
+<body>
+    <div class="p-grid p-m-2">
+        <div class="p-col-12 p-md-4" *ngFor="let pizza of pizzas">
+            <p-card header="{{pizza.name}} "subheader="{{pizza.description}}" class="p-mb-2" [style]="{   
+                borderRadius: '15px',  
+                width: '400px',
+                height:'550px',
+                backgroundColor: 'white',  
+                color: 'black' ,
+                boxShadow: '0 0 10px 5px rgba(0, 0, 0, 0.2)'
+            }">
+                <ng-template pTemplate="header">
+                        <img [src]="pizza.imageUrl" alt="Pizza Image" style="object-fit: fill; border-radius: 20px; justify-content: center; margin: 0 auto; display: block;" />
+                </ng-template>
+                <p>{{pizza.category}} <br>
+               <strong>Size: </strong> {{pizza.size}} <br>
+                <strong>Cooking Method: </strong>{{pizza.cookingMethod}} <br>
+                <strong>Spice Level: </strong>{{pizza.spiceLevel}} <br>
+                <strong>Price: Rs{{pizza.price}}</strong></p>
+                <p-inputNumber  
+                [style]="{ borderRadius: '15px', width: '2px', height: '1px', transform: 'scaleX(0.8)' }"
+                [(ngModel)]="pizza.quantity"
+                [showButtons]="true" 
+                buttonLayout="horizontal" 
+                inputId="horizontal" 
+                spinnerMode="horizontal" 
+                [step]="1"
+                [min]="0" 
+                decrementButtonClass="p-button-danger"
+                incrementButtonClass="p-button-success"
+                incrementButtonIcon="pi pi-chevron-up" 
+                decrementButtonIcon="pi pi-chevron-down" 
+                [max]="10"
+                displayOnly="false"
+                buttonStyleClass="custom-button-size" />
+            
+            </p-card>
+        </div>
     </div>
-    <button pButton type="button" label="Order" class="p-button-success" (click)="orderPizzas()"></button>
-</div>
-
- 
+    
+     
+     
+</body>

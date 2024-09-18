@@ -6,6 +6,9 @@ import { OrderDTO } from '../model/orderDTO';
   providedIn: 'root'
 })
 export class OrderService {
+  getOrdersByUsername(username: string) {
+    throw new Error('Method not implemented.');
+  }
   private apiUrl = 'http://localhost:8082/pizza/orders'; // Backend API URL
 
   constructor(private http: HttpClient) {}

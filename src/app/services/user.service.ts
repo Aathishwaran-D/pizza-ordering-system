@@ -2,26 +2,27 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { OrderDTO } from '../model/orderDTO';
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private baseUrl = 'http://localhost:8082/auth';  // Base URL for the Spring Boot backend
+  private baseUrl = 'http://localhost:8082/';  // Base URL for the Spring Boot backend
 
   constructor(private http: HttpClient) { }
 
   // Different name in Angular (getWelcomeMessage) but it still calls /auth/welcome in Spring Boot
   getWelcomeMessage(): Observable<string> {
-    return this.http.get(`${this.baseUrl}/welcome`, { responseType: 'text' });
+    return this.http.get(`${this.baseUrl}auth/welcome`, { responseType: 'text' });
   }
 
   register(user: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/addNewUser`, user);
+    return this.http.post(`${this.baseUrl}auth/addNewUser`, user);
   }
 
   login(credentials: any) {
-    return this.http.post(`${this.baseUrl}/login`, credentials).pipe(
+    return this.http.post(`${this.baseUrl}auth/login`, credentials).pipe(
       map((response: any) => {
         if (response && response.token) {
           // Store the token in localStorage (or sessionStorage as per your preference)
@@ -31,14 +32,16 @@ export class UserService {
       })
     );
   }
-
+  getOrdersByUsername(username: string): Observable<OrderDTO[]> {
+    return this.http.get<OrderDTO[]>(`${this.baseUrl}pizza/orders/user/${username}`);
+  }
     // New methods added from UserController
     getUserProfile(): Observable<string> {
-      return this.http.get(`${this.baseUrl}/user/userProfile`, { responseType: 'text' });
+      return this.http.get(`${this.baseUrl}user/userProfile`, { responseType: 'text' });
     }
   
     getAdminProfile(): Observable<string> {
-      return this.http.get(`${this.baseUrl}/admin/adminProfile`, { responseType: 'text' });
+      return this.http.get(`${this.baseUrl}auth/admin/adminProfile`, { responseType: 'text' });
     }
   
 

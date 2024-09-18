@@ -70,7 +70,7 @@ h1 {
   }  
   input[type="username"],
   input[type="password"] {
-    width: 80%;
+    width: 100%;
     padding: 10px;
     font-size: 1rem;
     border: 1px solid #ccc;
@@ -108,7 +108,55 @@ h1 {
     }
   }
   
-  .usernamelabel{
+  .usernamelab{
     margin-top: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
+    font-weight: bold;
+    letter-spacing: 0.1cm;
   }
+
+  /* Animation Hungry for Pizza? Let’s Make It Happen – Log in Now! */
+
+  h5 {
+    font-family: 'Poppins', sans-serif;  /* Choose a modern font */
+    font-size: 16px;                     /* Adjust the size to be noticeable */
+    color: #ff6347;                      /* A vibrant color like tomato red */
+    text-align: center;                  /* Center the text */
+    margin-top: 5px;
+    letter-spacing: 1.5px;               /* Spacing for better readability */
+    animation: fadeInUp 2s ease-in-out;
+    margin-bottom: 60px;  /* Fade and move up animation */
+
+  }
+  
+  h5:hover {
+    color: #f39c12;                      /* Change color on hover */
+    animation: bounce 0.5s infinite;      /* Bounce effect on hover */
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);       /* Start below and fade in */
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);          /* End in original position */
+    }
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);      /* Small bounce effect */
+    }
+  }
+/* In your component's stylesheet or a global stylesheet */
+.error-message {
+  color: #ff221b; /* Danger color */
+  font-size: 18px;
+  font-weight: bold;
+  font-style: oblique;
+}

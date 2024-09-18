@@ -172,3 +172,44 @@ body {
 #couponFormModal {
   right: 0; /* Align the Coupon Modal to the right side */
 }
+
+.fixed-menubar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures it stays on top of other content */
+}
+
+/* Optional: Add padding to the body to prevent content from going under the menubar */
+body {
+  padding-top: 50px; /* Adjust this value to match the height of your menubar */
+}
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* For smooth scrolling on touch devices */
+}
+
+table {
+  width: 100%;
+  min-width: 800px; /* Adjust the min-width if needed */
+}
+/* Wrapping */
+
+.table td, .table th {
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* Make the Image URL column narrower */
+.table td:nth-child(9), .table th:nth-child(9) {
+  max-width: 150px;
+  white-space: nowrap; /* Prevents wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Adds ellipsis if the content is too long */
+}
+
+/* Make other columns more flexible */
+.table td:nth-child(2), .table td:nth-child(3), .table td:nth-child(4) {
+  white-space: normal;
+}

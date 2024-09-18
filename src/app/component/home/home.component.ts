@@ -49,10 +49,6 @@ export class HomeComponent {
     routerLink:['/admin-dashboard']
     },
     {
-      label:'History',
-
-    },
-    {
      'label':'Logout',
      icon: 'pi pi-fw pi-sign-out',
       command: () => this.logout(),

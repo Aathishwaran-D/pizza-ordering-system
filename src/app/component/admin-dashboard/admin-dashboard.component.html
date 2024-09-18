@@ -1,9 +1,12 @@
-<p-menubar [model]="items"></p-menubar> <!-- Define the menubar template -->
+<p-menubar [model]="items" class="fixed-menubar"></p-menubar> <!-- Define the menubar template -->
 <div class="container">
   <div class="row">
     <div class="col-md-6">
+      <br>
+      <br>
       <h3>Pizza Management</h3>
-      <button class="btn btn-primary" (click)="showPizzaForm()">Add Pizza</button>
+      <button class="btn btn-primary" (click)="showPizzaForm()">List of Pizza</button>
+      <div class="table-responsive">
       <table class="table">
         <thead>
           <tr>
@@ -38,9 +41,10 @@
         </tbody>
       </table>
     </div>
+    </div>
     <div class="col-md-6">
       <h3>Coupon Management</h3>
-      <button class="btn btn-primary" (click)="showCouponForm()">Add Coupon</button>
+      <button class="btn btn-primary" (click)="showCouponForm()">List of Coupon</button>
       <table class="table">
         <thead>
           <tr>
@@ -70,15 +74,11 @@
     <!-- Pizza Modal -->
     <div class="modal fade" id="pizzaFormModal" tabindex="-1" role="dialog" aria-labelledby="pizzaFormModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="pizzaFormModalLabel">{{ selectedPizza ? 'Edit Pizza' : 'Add Pizza' }}</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>   
+        <div class="modal-content">  
           <div class="modal-body">
             <form [formGroup]="pizzaForm">
+              <h3>Pizza Form</h3>
+              <br>
               <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" class="form-control" id="name" formControlName="name" required>
@@ -140,13 +140,9 @@
   <div class="modal fade" id="couponFormModal" tabindex="-1" role="dialog" aria-labelledby="couponFormModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="couponFormModalLabel">{{ selectedCoupon ? 'Edit Coupon' : 'Add Coupon' }}</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>   
         <div class="modal-body">
+          <h3>Coupon Form</h3>
+          <br>
           <form [formGroup]="couponForm">
             <div class="form-group">
               <label for="code">Code:</label>

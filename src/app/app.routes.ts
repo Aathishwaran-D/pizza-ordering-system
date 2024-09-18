@@ -4,6 +4,7 @@ import { LoginComponent } from './component/login/login.component';
 import { HomeComponent } from './component/home/home.component';
 import { CartComponent } from './component/cart/cart.component';
 import { AdminDashboardComponent } from './component/admin-dashboard/admin-dashboard.component';
+// import { OrderHistoryComponent } from './component/order-history/order-history.component';
 
 // import { CartComponent } from './component/cart/cart.component';
 
@@ -14,7 +15,8 @@ export const routes: Routes = [
     { path: 'admin-dashboard', component: AdminDashboardComponent } ,
     // { path: '', redirectTo: '/login', pathMatch: 'full' }
     { path: 'home', component: HomeComponent },
-    {path: '', component:LoginComponent}
+    {path: '', component:LoginComponent},
+    // {path:'history', component:OrderHistoryComponent}
     // { path: 'cart', component: CartComponent }, // Cart page route
 
 ];
