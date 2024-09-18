@@ -95,13 +95,14 @@ orderPizzas() {
         }));
 
          // Prepare the order payload
+         const userId = localStorage.getItem('id');
     const orderDetails: OrderDTO = {
       orderDate: new Date().toISOString(), // Current date
       totalAmount: this.totalPrice, // Total price from cart
       discountAmount: this.coupon ? (this.totalPrice * (this.coupon.discount / 100)) : 0, // Calculate discount
       finalAmount: this.totalPrice - (this.coupon ? (this.totalPrice * (this.coupon.discount / 100)) : 0), // Final amount after discount
       status: 'COMPLETED',
-      user: { id: 1 }, // Hardcoded user ID for now, change as needed
+      user: { id: Number(userId) }, // Hardcoded user ID for now, change as needed
       coupon: this.coupon && this.coupon.id ? { id: this.coupon.id } : undefined, // Ensure `id` is defined or use `undefined` // Use coupon ID if applied
       orderItems: orderItems // Pizza items
     };

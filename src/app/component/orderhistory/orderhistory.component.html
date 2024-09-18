@@ -1,0 +1,37 @@
+<div class="container mt-4 hello">
+  <h2 class="text-center mb-4">Order History</h2>
+
+  <!-- PrimeNG Spinner -->
+  <div *ngIf="isLoading" class="d-flex justify-content-center my-4">
+    <p-spinner [style]="{'width':'50px', 'height':'50px'}"></p-spinner>
+  </div>
+
+  <!-- PrimeNG Table -->
+  <div *ngIf="!isLoading">
+    <p-table *ngIf="orders.length > 0" [value]="orders" responsiveLayout="scroll" class="p-datatable p-component">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Order ID</th>
+          <th>Date</th>
+          <th> Total Price </th>
+          <th>Status</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-order>
+        <tr>
+          <td>{{ order.id }}</td>
+          <td>{{ order.orderDate | date:'shortDate' }}</td>
+          <!-- Format total amount as INR -->
+          <td>{{ order.finalAmount | currency:'INR'}}</td>
+          <td>
+            <button pButton type="button" class="p-button-info p-button-sm" (click)="viewOrderDetails(order.id)">{{order.status}}</button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+
+    <p *ngIf="orders.length === 0" class="p-alert p-alert-info my-4">
+      You have no past orders.
+    </p>
+  </div>
+</div>

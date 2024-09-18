@@ -1,0 +1,63 @@
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Heading */
+  h2 {
+    font-size: 1.8rem;
+    color: #333;
+  }
+  
+  /* PrimeNG Table */
+  .p-datatable {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .p-datatable thead {
+    background: #f5f5f5;
+  }
+  
+  .p-datatable th {
+    text-align: left;
+    padding: 10px;
+    background: #007bff;
+    color: #fff;
+  }
+  
+  .p-datatable td {
+    padding: 10px;
+  }
+  
+  .p-datatable tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+  
+  .p-datatable tbody tr:nth-child(even) {
+    background-color: #fff;
+  }
+  
+  .p-datatable .p-datatable-tbody tr:hover {
+    background-color: #e9ecef;
+  }
+  
+  .p-datatable .p-datatable-tbody td {
+    vertical-align: middle;
+  }
+  
+  /* Spinner */
+  .p-spinner {
+    color: #0cbf06;
+  }
+  
+  /* Alert */
+  .p-alert-info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+    border-radius: .25rem;
+    padding: 1rem;
+  }

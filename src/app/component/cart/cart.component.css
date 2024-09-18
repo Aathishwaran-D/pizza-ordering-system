@@ -1,26 +1,40 @@
+body {
+  /* background-image: url('../../../assets/images/bg2.webp'); */
+  background-color:rgb(82, 214, 146);
+  background-size: cover; /* Ensures the image covers the whole background */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif; /* Optional: Sets a default font */
+}
+
 .cart-container, .coupon-container {
   display: inline-block;
   vertical-align: top;
   margin: 20px;
+  background-color: white; /* Adds background color to content containers */
+  padding: 20px; /* Adds padding inside containers */
 }
 
 .cart-container {
   margin-left: 30px;
   width: 60%;
- box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
- border-radius: 20px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
 }
 
 .coupon-container {
-  width: 30%;
+  width: 34%;
   font-size: 14px;
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   border-radius: 20px;
+  color: chocolate;
 }
 
 .coupon-details {
   margin-top: 20px;
-  font-size: 10px;
+  font-size: 16px;
 }
 
 .order-message {
@@ -32,17 +46,20 @@
   font-weight: bold;
 }
 
-.place-order-btn, .clear-order-btn {
-
+.place-order-btn {
   margin-top: 100px;
   margin-right: 100px;
   float: right;
 }
-
-.cou{
-  font-size: 13px;
+.clear-order-btn{
+  margin-top: 100px;
+  margin-right: 20px;
+  float: right;
 }
 
+.cou {
+  font-size: 13px;
+}
 
 .apply-button {
   background-color: #007bff;
@@ -60,20 +77,10 @@
   cursor: not-allowed;
 }
 
-.coupon-details{
-  margin-left: 1000px;
-  font-size: 16px;
-
-}
 .fixed-menubar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000; /* Ensures it stays on top of other content */
-}
-
-/* Optional: Add padding to the body to prevent content from going under the menubar */
-body {
-  padding-top: 50px; /* Adjust this value to match the height of your menubar */
 }

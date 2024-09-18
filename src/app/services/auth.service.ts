@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class AuthService {
   private token: string | null;
   constructor(private http: HttpClient) {
-    this.token = localStorage.getItem('token'); // or retrieve from SessionStorage/cookies
+    this.token = localStorage.getItem('jwtToken'); // or retrieve from SessionStorage/cookies
   }
 
   protected getHeaders(): HttpHeaders {
@@ -20,5 +20,8 @@ export class AuthService {
   public getData(): Observable<any> {
     const headers = this.getHeaders();
     return this.http.get('protected-route', { headers });
+  }
+  getToken(): string | null {
+    return localStorage.getItem('jwtToken'); // Or however you store the token
   }
 }

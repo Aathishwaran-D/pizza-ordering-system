@@ -8,8 +8,10 @@
         <ng-template pTemplate="header">
             <tr>
                 <th>Pizza Name:</th>
-                <th>Price:</th>
+                <th pSortableColumn="price">Price <p-sortIcon field="price" /></th>
                 <th>Quantity:</th>
+                <th>Pizza Image</th>
+                                <!-- <th pSortableColumn="rating">Reviews <p-sortIcon field="rating" /></th> -->
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-selectedPizza>
@@ -17,13 +19,16 @@
                 <td>{{ selectedPizza.pizza.name }}</td>
                 <td>{{ selectedPizza.pizza.price }}</td>
                 <td>{{ selectedPizza.quantity }}</td>
+                <td><img [src]="selectedPizza.pizza.imageUrl" [alt]="selectedPizza.pizza.name" width="150" class="shadow-4" /></td>
+                 <!-- <td><p-rating [ngModel]="selectedPizza.rating" [readonly]="true" [cancel]="false"></p-rating></td> -->
+
             </tr>
         </ng-template>
     </p-table>
     <p style="margin-left: 20px;"><strong>Total Amount:</strong> Rs.{{totalPrice | number:'1.2-2'}}</p>
 </div>
   <div class="coupon-container" *ngIf="availableCoupons.length>0">
-    <h2 style="margin-left: 20px; font-size: 18px;">Coupon Details</h2>
+    <h2 style="margin-left: 20px; font-size: 18px;">Available Coupons</h2>
     <p-table [value]="availableCoupons" [tableStyle]="{ 'min-width': '30rem' }">
         <ng-template pTemplate="header">
             <tr>
@@ -46,7 +51,7 @@
     </p-table>
 </div>
 
-<div class="coupon-details" *ngIf="coupon">
+<div style="margin-left: 30px;" class="coupon-details" *ngIf="coupon">
     <h2 style="color: chocolate;">Coupon Applied...!</h2>
     <p><strong>Coupon Code:</strong> {{ coupon.code }}</p>
     <p><strong>Discount:</strong> {{ coupon.discount }}%</p>

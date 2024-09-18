@@ -16,6 +16,7 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { AdminDashboardComponent } from './component/admin-dashboard/admin-dashboard.component';
+import { OrderHistoryComponent } from './component/orderhistory/orderhistory.component';
 
 @Component({
   selector: 'app-root',
@@ -27,6 +28,7 @@ import { AdminDashboardComponent } from './component/admin-dashboard/admin-dashb
             RegistrationComponent,
             MenubarModule,
             LoginComponent,
+            OrderHistoryComponent,
             HomeComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './app.component.html',

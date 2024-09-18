@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { OrderDTO } from '../model/orderDTO';
 @Injectable({
@@ -27,6 +27,7 @@ export class UserService {
         if (response && response.token) {
           // Store the token in localStorage (or sessionStorage as per your preference)
           localStorage.setItem('jwtToken', response.token);
+          localStorage.setItem('roles', response.roles);
         }
         return response;
       })
@@ -53,5 +54,10 @@ export class UserService {
   // Method to logout (clear the token)
   logout(): void {
     localStorage.removeItem('jwtToken');
+  }
+
+  getUserRole(): Observable<string> {
+    const roles = localStorage.getItem('roles');
+    return of(roles ? roles : '');
   }
 }

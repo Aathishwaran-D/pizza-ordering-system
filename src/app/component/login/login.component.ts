@@ -41,13 +41,20 @@ export class LoginComponent implements OnInit {
       this.userService.login(this.loginForm.value).subscribe(
         response => {
           if (response && response.token) {
+
+            const roles = localStorage.getItem('roles') || '';
+            console.log(roles)
+            if (roles.includes('ROLE_ADMIN')) {
+              this.router.navigate(['/admin-dashboard']);
+            }else{
+              this.router.navigate(['/home']);
+            }
             // Store the token in localStorage
             localStorage.setItem('jwtToken', response.token);
             sessionStorage.setItem('userName', this.loginForm.controls['username'].value);
+            localStorage.setItem('id',response.id)
             console.log('Login successful, token stored');
-            
             // Redirect to home or dashboard page
-            this.router.navigate(['/home']);
           }
         },
         error => {

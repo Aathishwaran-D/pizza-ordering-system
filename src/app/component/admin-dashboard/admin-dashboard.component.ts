@@ -28,18 +28,9 @@ export class AdminDashboardComponent implements OnInit {
       routerLink: ['/home']
     },
     {
-      label: 'Cart',
-      icon: 'pi pi-fw pi-shopping-cart',
-      routerLink: ['/cart']
-    },
-    {
       label:  sessionStorage.getItem('userName') || 'Guest',
       icon: 'pi pi-fw pi-user',
       routerLink: ['/login']
-    },
-    {
-    label:'Admin',
-    routerLink:['/admin-dashboard']
     }
   ]
   pizzas: Pizza[] = [];

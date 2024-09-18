@@ -96,8 +96,21 @@ button {
     font-size: 14px;
   }
 
-body{
+  /* body {
     background-image: url(../../../assets/images/bg3.jpg);
-    background-repeat: repeat; /* Repeat the image both horizontally and vertically */
-    background-size: cover; /* Default size, adjust if needed */
-}   
+    /*background-repeat: repeat-y; /* Do not repeat the image */
+    /*background-size: ; /* Cover the entire page */
+    /*background-attachment: fixed; /* Keep the background fixed while scrolling 
+  } */
+
+
+  body {
+    background-image: url(../../../assets/images/bg3.jpg);
+    background-repeat: no-repeat;
+    background-size: fill;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 1300px; /* Add this */
+    margin: 0; /* Add this */
+  }
+ 

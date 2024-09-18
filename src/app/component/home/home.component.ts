@@ -14,6 +14,7 @@ import { LoginComponent } from '../login/login.component';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { last } from 'rxjs';
 
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -37,16 +38,11 @@ export class HomeComponent {
     },
     {
       label:  sessionStorage.getItem('userName') || 'Guest',
-      icon: 'pi pi-fw pi-user',
-      routerLink: ['/login']
+      icon: 'pi pi-fw pi-user'
     },
     {
       label:'Order',
       command:()=> this.orderPizzas()
-    },
-    {
-    label:'Admin',
-    routerLink:['/admin-dashboard']
     },
     {
      'label':'Logout',
@@ -54,7 +50,18 @@ export class HomeComponent {
       command: () => this.logout(),
       cssClass: 'logout-item' // Add a custom class here
       
+    },
+    {
+      'label':'Order History',
+      routerLink:['/order-history']
     }
+    ,
+  {
+    label: 'Admin Dashboard',
+    icon: 'pi pi-fw pi-cog',
+    routerLink: ['/admin-dashboard'],
+    visible: localStorage.getItem('roles') === '[ROLE_ADMIN]'
+  }
 
 
   ]
